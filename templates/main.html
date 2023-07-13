@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Heart Disease Predictor</title>
+  <script src="https://kit.fontawesome.com/5f3f547070.js" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+  <!-- Website Title -->
+
+  <div class="container">
+    <h2 class='container-heading'><span class="heading_font">Heart Disease Predictor</span></h2>
+    <div class='description'>
+      <p>A Machine Learning Web Application for predicting heart disease. Built using Flask.</p><br>
+        <p>(Note: This model is 86.84% accurate)</p>
+    </div>
+  </div>
+
+  <!-- Text Area -->
+  <div class="ml-container">
+    <form action="{{ url_for('predict')}}" method="POST"> 
+      
+        <div class="spacing">
+          <label for="age">Age</label>
+          <input type="int" id="age" name="age" class="input-style" placeholder="Your age.."><br>
+        </div>
+
+
+        <div class="spacing">
+          <label for="sex">Sex</label>
+          <select id="sex" name="sex" style="text-align: center;">
+            <option selected>----select option----</option>
+            <option value="1">Male</option>
+            <option value="0">Female</option>
+          </select><br>
+        </div>
+      
+       
+      
+
+      <div class="spacing">
+        <label for="cp">Chest Pain Type</label>
+        <select id="cp" name="cp" style="text-align: center;">
+          <option selected>----select option----</option>
+          <option value="0">Typical Angina</option>
+          <option value="1">Atypical Angina</option>
+          <option value="2">Non-anginal Pain</option>
+          <option value="3">Asymtomatic</option>
+        </select><br>
+      </div>
+
+      <div class="spacing">
+        <label for="trestbps">Resting Blood Pressure</label>
+        <input type="int" id="trestbps" name="trestbps" class="input-style" placeholder="A number in range [94-200] mmHg"><br>
+
+      </div>
+
+
+      <div class="spacing">
+        <label for="chol">Serum Cholesterol</label>
+        <input type="int" id="chol" name="chol" class="input-style" placeholder="A number in range [126-564] mg/dl"><br>
+      </div>
+
+      <div class="spacing">
+        <label for="fbs">Fasting Blood Sugar</label>
+        <select id="fbs" name="fbs" style="text-align: center;">
+          <option selected>----select option----</option>
+          <option value="1">Greater than 120 mg/dl</option>
+          <option value="0">Less than 120 mg/dl</option>
+        </select><br>
+
+      </div>
+      
+      <div class="spacing">
+        <label for="restecg">Resting ECG Results</label>
+        <select id="restecg" name="restecg" style="text-align: center;">
+          <option selected>----select option----</option>
+          <option value="0">Normal</option>
+          <option value="1">Having ST-T wave abnormality</option>
+          <option value="2">Probable or definite left ventricular
+            hypertrophy</option>
+        </select><br>
+
+      </div>
+
+        
+
+      
+      
+
+      
+      <div class="spacing">
+        <label for="thalach">Max Heart Rate </label>
+        <input type="int" id="thalach" name="thalach" class="input-style" placeholder="A number in range [71-202] bpm"><br>
+
+      </div>
+
+
+      <div class="spacing">
+        <label for="exang">Exercise-induced Angina</label>
+        <select id="exang" name="exang" style="text-align: center;">
+          <option selected>----select option----</option>
+          <option value="1">Yes</option>
+          <option value="0">No</option>
+        </select><br>
+
+      </div>
+        
+
+      <div class="spacing">
+        <label for="oldpeak">ST depression</label>
+        <input type="float" id="oldpeak" name="oldpeak" class="input-style" placeholder="ST depression, typically in [0-6.2]"><br>
+
+      
+
+
+      </div>
+
+      <div class="spacing">
+        <label for="slope">slope of the peak exercise ST segment</label>
+        <select id="slope" name="slope" style="text-align: center;">
+          <option selected>----select option----</option>
+          <option value="0">Upsloping</option>
+          <option value="1">Flat</option>
+          <option value="2">Downsloping</option>
+        </select><br>
+
+      </div>
+
+      
+
+      <div class="spacing">
+        <label for="ca">Number of Major vessels</label>
+        <input type="int" id="ca" name="ca" class="input-style" placeholder="Typically in [0-4]"><br>
+
+      </div>
+
+      
+      
+      <div class="spacing">
+        <label for="thal">Thalassemia</label> 
+        <select id="thal" name="thal" style="text-align: center;">
+          <option selected>----select option----</option>
+          <option value="0">Normal</option>
+          <option value="1">Fixed Defect</option> 
+          <option value="2">Reversible Defect</option>  
+        </select><br>
+      </div>                    
+
+
+       
+
+      
+
+      <input type="submit" class="my-cta-button" value="Predict" style="width: 20%; margin-top: 5%;">
+    </form>
+  </div>
+
+  <!-- Footer -->
+  <div class='footer'>
+    <div class="contact">
+      <a target="_blank" href="https://github.com/gsivanithin18/Heart-Disease-Project"><i
+          class="fab fa-github fa-lg contact-icon"></i></a>
+      <a target="_blank" href="https://www.linkedin.com/in/sivanithingurram18/"><i
+          class="fab fa-linkedin fa-lg contact-icon"></i></a>
+    </div>
+    <p class='footer-description'>Made with ♥ by Siva Nithin Gurram.</p>
+  </div>
+
+  
+
+</body>
+
+</html>

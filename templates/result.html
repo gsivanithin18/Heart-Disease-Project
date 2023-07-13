@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Heart Disease Predictor</title>
+		<script src="https://kit.fontawesome.com/5f3f547070.js" crossorigin="anonymous"></script>
+  		<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+  		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+	</head>
+
+    <body>
+
+        <!-- Website Title -->
+		<div class="container">
+            <h2 class='container-heading'><span class="heading_font">Heart Disease Predictor</span></h2>
+            <div class='description'>
+    			<p>A Machine Learning Web Application for predicting heart disease. Built using Flask.</p><br>
+    		</div>
+    	</div>
+
+		<!-- Result -->
+		<div class="results">
+			{% if prediction>=0.5 %}
+				<h1>Prediction: <span class='danger'>Oops! There is a risk of heart disease for you.</span></h1>
+			
+			{% elif prediction<0.5: %}
+				<h1>Prediction: <span class='safe'>Great! You don't have a chance of developing Heart Disease.</span></h1>
+			
+			{% endif %}	
+		</div>
+
+		<!-- Footer -->
+       <div class='footer'>
+		<div class="contact">
+			<a target="_blank" href="https://github.com/gsivanithin18/Heart-Disease-Project"><i
+				class="fab fa-github fa-lg contact-icon"></i></a>
+			<a target="_blank" href="https://www.linkedin.com/in/sivanithingurram18/"><i
+				class="fab fa-linkedin fa-lg contact-icon"></i></a>
+		  </div>
+		  <p class='footer-description'>Made with ♥ by Siva Nithin Gurram.</p>
+       </div>
+
+	</body>
+</html>
