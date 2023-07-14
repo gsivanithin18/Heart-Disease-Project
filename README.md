@@ -31,7 +31,7 @@ python app.py
 The program will prompt you to enter the patient's medical information, such as age, gender, blood pressure, cholesterol levels, etc. After providing the necessary details, the predictor will output the estimated probability of heart disease.
 
 
-https://github.com/gsivanithin18/Heart-Disease-Project/assets/108757821/0334554c-fd85-41f3-aea7-420abb0c78c5
+https://github.com/gsivanithin18/Heart-Disease-Project/assets/108757821/07f4053b-a11c-431d-a7dd-27fe1494dccf
 
 
 ## Dataset
